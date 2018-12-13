@@ -40,7 +40,7 @@ router.post('/', function (req, res) {
       if(circuit.length < 1) {
         console.log("no real circuits");
         //return 404 if no circuits, triggers addCircuit on front end
-        res.status(404).send();
+        res.status(404).send(404);
         return;
       }
       console.log("Circuit Found!");
@@ -51,7 +51,6 @@ router.post('/', function (req, res) {
       console.error(err);
     });
   });
-  res.status(404).send();
 });
 
 module.exports = router;

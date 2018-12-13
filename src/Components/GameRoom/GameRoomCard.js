@@ -9,7 +9,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
-import {UserContext} from "../Contexts/UserContext";
+import {GameContext} from "../Contexts/GameContext";
 
 
 
@@ -37,7 +37,43 @@ const styles = {
 class SimpleCard extends React.Component {
   constructor(props) {
     super();
-    this.state = props.value; //assigns value passed to this as value props
+    this.state = {foundCircuit: ''}
+  }
+  componentWillMount() {
+    //var userId = this.props.context.userId;
+    var userId = this.props.value.user._id;
+    var roomName = '';
+    console.log("props at component will mount: ", this.props);
+    //get a list of circuits that match a user's boundary:
+    axios.post(process.env.REACT_APP_BACK_END_SERVER + 'getCircuits/', {_id: userId}).then(
+      (res) => {
+        var circuit = res.data;
+        console.log("server returned circuit info: ", circuit);
+        console.log("first challenge: ", circuit.challenges[0]);
+        roomName = circuit._id;
+        console.log("room name / circuit id: " + roomName);
+        console.log("this value inside post call ", this.props.value);
+        this.setState({foundCircuit: circuit});
+        //DO NOT UPDATE GAME HERE, THAT IS DONE ON THE HANDLEJOIN FUNCTION
+        //TODO set corresponding game circuit object through GameProvider
+
+      }).catch( (err) => {
+        console.error("error", err);
+        if(userId != ''){
+          console.log("User is not empty");
+          axios.post(process.env.REACT_APP_BACK_END_SERVER + 'addCircuit/', {_id: userId}).then(
+          (res) => {
+            var newCircuit = res.data;
+            console.log("add circuit successful: ", newCircuit);
+            this.setState({foundCircuit: newCircuit});
+          }).catch(function(err){
+            console.error(err);
+          });
+        }
+        else {
+          console.log("invalid user");
+        }
+      });
   }
   handleJoin(game) {
     console.log("user object: ", game.user);
@@ -79,23 +115,20 @@ class SimpleCard extends React.Component {
             Location
           </Typography>
           <Typography variant="h6" component="h2" align="center">
-            Missoula
-          </Typography>
-          <Typography component="p" align="center">
-            10 Challenges to be completed
+            {this.state.foundCircuit.challenges ?
+              this.state.foundCircuit.challenges[1].full_challenge_text
+              : ''}
           </Typography>
         </CardContent>
         <CardActions>
-          <Link to="/Lobby/">
-            <UserContext.Consumer>{
+            <GameContext.Consumer>{
                 (game) => (
             <Button size="small" justify="center"
               onClick={() => this.handleJoin(game)}
               >
               Join Circuit
             </Button>
-          )}</UserContext.Consumer>
-          </Link>
+          )}</GameContext.Consumer>
         </CardActions>
       </Card>
     );

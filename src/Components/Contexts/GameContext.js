@@ -97,6 +97,7 @@ class GameProvider extends React.Component {
         //is accessed
         user: {
           username: 'Not logged in',
+          _id: '',
           current_user_location: {
             type: "",
             coordinates: []

@@ -41,10 +41,11 @@ function PaperSheet(props) {
         <Typography variant="h3" gutterBottom>
           Click the button below to log in
         </Typography>
-        <DialogBox />
+
           <GameContext.Consumer>{
               (game) => ( //can rewrite this as (userProviderState) => () if that's more clear
                 <div>
+                  <DialogBox value={game} />
                   <Typography variant="h4" gutterBottom>
                     User Name: {game.user.username}
                   </Typography>
