@@ -4,24 +4,20 @@ import axios from "axios";
 /*
 The GameContext context is a React context object that has a
 Provider component and a Consumer component
-
 The Provider component is configured in this file - it gives anything that
 is wrapped in it access to its state, which contains two important properties
-
 When a Consumer component accesses
 <GameContext.Consumer>
   {(game) => (
     //the session game object is available here
   )}
 </GameContext.Consumer>
-
 In the user game object there is placeholder data to initialize the session
 (for example username is 'not logged in'). In addition, as defined in this file,
 the user session object exposed by the GameContext.Consumer has methods to set
 its own state with either a user's information, current circuit information, or both
 retrieved by a Mongoose/MongoDB id axios put call (essentially taking the user
 session cookie and synchronizing the user data on the client side with all the server data).
-
 The important thing about this is that it updates any and all child components
 of the provider when
   session.updateUser(mongodbID)
@@ -29,18 +25,13 @@ of the provider when
   or
   session.updateGame(mongodbID)
 is called
-
 look at conditional rendering: https://reactjs.org/docs/conditional-rendering.html
-
 basically, when rendering Consumers, we should check if the value exists first, then render if it does
 in an inline verification. So for example, to render the 2nd challenge's full text you would
 do this within a GameContext.Consumer function:
 game.circuit.challenges[1] ? 'Second Challenge: '+ game.circuit.challenges[1].full_challenge_text : ''
-
 The syntax is (condition to test) ? <span>Render if true</span> : <span>Render if not true</span>
   --> the above will make displaying information and our lives much easier
-
-
 */
 
 

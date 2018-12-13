@@ -8,7 +8,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {UserContext} from "../Contexts/UserContext";
-import {GameContext} from "../Contexts/GameContext";
 
 import axios from "axios";
 import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
@@ -99,7 +98,7 @@ export default class FormDialog extends React.Component {
           label="Name"
           fullWidth
         />
-      <GameContext.Consumer>{
+        <UserContext.Consumer>{
             (game) => ( //can rewrite this as (userProviderState) => () if that's more clear
               <div>
                 <Button
@@ -109,23 +108,9 @@ export default class FormDialog extends React.Component {
                   }}>
                   Update User Id
                 </Button>
-                <Button
-                  variant="contained" color="primary"
-                  Button onClick={() => {
-                    game.updateCircuit(this.state.idSearch) /*fill in this value with session._id somehow*/
-                  }}>
-                  Update Circuit Object Via User ID
-                </Button>
-                <Button
-                  variant="contained" color="primary"
-                  Button onClick={() => {
-                    game.updateGame(this.state.idSearch) /*fill in this value with session._id somehow*/
-                  }}>
-                  Update Game Object
-                </Button>
               </div>
             )
-          }</GameContext.Consumer>
+          }</UserContext.Consumer>
       <Button variant="contained" color="primary"
         Button onClick={this.handleClickOpen}>
         Add User to Database

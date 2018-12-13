@@ -95,7 +95,6 @@ class SimpleCard extends React.Component {
           circuit: circuit
         });
         //TODO set corresponding game circuit object through GameProvider
-
       }).catch(function(err){
         console.error(err);
         //add circuit if can't find: (NOT WORKING CURRENTLY)
@@ -104,7 +103,6 @@ class SimpleCard extends React.Component {
           function(res){
             console.log(res);
             roomName = res.data[0]._id;
-
           }).catch(function(err){
             console.error(err);
           });
