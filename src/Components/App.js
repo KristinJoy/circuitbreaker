@@ -9,6 +9,8 @@ import OpeningScreen from "./OpeningScreen/OpeningScreen";
 import AppBar from "./Utilities/AppBar";
 import UserProvider from "./Contexts/UserContext";
 import {UserContext} from "./Contexts/UserContext";
+import GameProvider from "./Contexts/GameContext";
+import {GameContext} from "./Contexts/GameContext";
 
 const App = () =>
 <div>
@@ -19,17 +21,17 @@ const App = () =>
 </div>;
 
 const AppRouter = () => (
-<UserProvider>
+<GameProvider>
   <Router>
     <div>
       {/*attempting to pass session id through routes:*/}
-      <UserContext.Consumer>{
+      <GameContext.Consumer>{
           (session) => (
             <div>
             <Route path="/Challenges/" id={session.user._id} component={Challenges} />
             </div>
           )
-        }</UserContext.Consumer>
+        }</GameContext.Consumer>
       <Route path="/" exact component={App} />
       <Route path="/GameRoom/" component={GameRoom} />
       <Route path="/Map/" component={Map} />
@@ -38,7 +40,7 @@ const AppRouter = () => (
       <Route path="/OpeningScreen/" component={OpeningScreen} />
     </div>
   </Router>
-</UserProvider>
+</GameProvider>
 );
 
 export default AppRouter;

@@ -8,8 +8,7 @@ UserSchema = mongoose.Schema(
         user_session_boundary: {
           here_api_format: [Number] //only need one format of bounding box for Here API and matchmaking
         },
-        challenges_completed: [String], //id's of challenges completed, I don't think we need this
-        circuits_participated:[String] //id's of circuits a user was in
+        current_circuit_id:String //id's of circuits a user was in
     },
     { collection: 'users' });
 //UserSchema.index({current_user_location: '2dsphere'});

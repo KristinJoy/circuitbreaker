@@ -59,6 +59,7 @@ function process_request(req) {
           for(var i = 0; i < places.length; i++) {
             var words = ['keys', 'flower', 'clock', 'newspaper', 'wallet', 'soda can', 'carrot', 'banana', 'milk', 'watch', 'magnet', 'CD', 'shoe','flag'];
             var objectGate = words[Math.floor(Math.random()*words.length)];
+            var fullText = 'Take a ' + objectGate + ' to ' + places[i].title + ' and take a selfie with it.';
             sets_challenges[i] = {
               location_gate:{
                 position: places[i].position,
@@ -66,7 +67,8 @@ function process_request(req) {
                 address: places[i].vicinity,
                 category: places[i].category.id
                 },
-              object_gate: objectGate
+              object_gate: objectGate,
+              full_challenge_text: fullText
             };
           }
           //create the new circuit

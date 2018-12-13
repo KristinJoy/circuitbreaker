@@ -29,30 +29,29 @@ router.post('/', function (req, res) {
   })
   .then(function(){
     console.log("getCircuit User ID Located... " + userId)
-    //then search circuits by here boundary
+    //check if there are circuits in user boundary
+    //that have not started more than 2 minutes ago
+    /*&& (circuit.time_started + 120000) < new Date()*/
     Circuit.find({circuit_boundaries: hereBoundary}, function(err, circuit) {
       if(err){
         console.error(err);
       }
     }).then(function(circuit){
-      console.log("circuit exists: " + JSON.stringify(circuit[0].challenges[3]));
-      //check if there are circuits in user boundary
-      //that have not started more than 2 minutes ago
-      /*&& (circuit.time_started + 120000) < new Date()*/
-
-      if(!circuit.length){
-        console.log("no circuits found for " + hereBoundary);
-        console.log(circuit.length);
-        //res.status(404).send(null);
+      if(circuit.length < 1) {
+        console.log("no real circuits");
+        //return 404 if no circuits, triggers addCircuit on front end
+        res.status(404).send();
         return;
       }
       console.log("Circuit Found!");
+      //remember that find returns an array of results, even if only one result,
+      //access with circuit[0]
       res.status(200).send(circuit[0]);
     }).catch(function(err){
       console.error(err);
     });
   });
-  res.status(404);
+  res.status(404).send();
 });
 
 module.exports = router;

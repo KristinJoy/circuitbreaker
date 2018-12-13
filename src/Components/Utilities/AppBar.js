@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuButton from "./MenuButton";
 import Avatar from "./Avatar";
-import {UserContext} from "../Contexts/UserContext";
+import {GameContext} from "../Contexts/GameContext";
 
 const styles = {
   root: {
@@ -35,11 +35,11 @@ function ButtonAppBar(props) {
             CIRCUIT BREAKER
           </Typography>
           <Typography variant="h5" color="inherit">
-            <UserContext.Consumer>{
+            <GameContext.Consumer>{
                 (session) => ( //can be rewreitten as (userProviderState)
                     <span>{session.user.username}</span>
                 )
-              }</UserContext.Consumer>
+              }</GameContext.Consumer>
           </Typography>
 
           <Avatar />

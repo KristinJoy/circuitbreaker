@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import DialogBox from "./DialogBox"
 import Grid from '@material-ui/core/Grid';
 import {UserContext} from "../Contexts/UserContext";
+import {GameContext} from "../Contexts/GameContext";
 
 import {
   Route,
@@ -41,22 +42,29 @@ function PaperSheet(props) {
           Click the button below to log in
         </Typography>
         <DialogBox />
-          <UserContext.Consumer>{
-              (session) => ( //can rewrite this as (userProviderState) => () if that's more clear
+          <GameContext.Consumer>{
+              (game) => ( //can rewrite this as (userProviderState) => () if that's more clear
                 <div>
                   <Typography variant="h4" gutterBottom>
-                    User Name: {session.user.username}
+                    User Name: {game.user.username}
+                  </Typography>
+                  <Typography variant="h4" gutterBottom>
+                    User ID: {game.user._id}
                   </Typography>
                   <Typography variant="h5" gutterBottom>
-                    User west bound: {session.user.user_session_boundary.here_api_format[0]}
+                    User west bound: {game.user.user_session_boundary.here_api_format[0]}
                   </Typography>
-                  <p>User ID: 5c0ff7bc64e17777e313ac23</p>
+                  <Typography variant="h5" gutterBottom>
+                    Current User Circuit ID: {game.user.current_circuit_id}
+                  </Typography>
+                  <Typography variant="h5" gutterBottom>
+                    First Challenge: {game.circuit.challenges[1] ? game.circuit.challenges[1].full_challenge_text : ''}
+                  </Typography>
                   <p>User ID: 5c0ff7c864e17777e313ac24</p>
-                  <p>User ID: 5c0ff7cf64e17777e313ac25</p>
-                  <p>User ID: 5c0ff80e64e17777e313ac27</p>
+                  <p>User ID: 5c0ff7bc64e17777e313ac23</p>
                 </div>
               )
-            }</UserContext.Consumer>
+            }</GameContext.Consumer>
       </Paper>
 
     </div>
