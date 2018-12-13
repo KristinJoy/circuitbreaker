@@ -116,11 +116,12 @@ class SimpleCard extends React.Component {
         console.log("Server has assigned user to circuit");
         game.updateGame(game.user._id);
         //TODO set corresponding game circuit object through GameProvider
-
       }).catch(function(err){
         console.error(err);
         //add circuit if can't find: (NOT WORKING CURRENTLY)
+
       });
+
   }
 
 

@@ -8,6 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import GameRoom from "../GameRoom/GameRoom";
 import {GameContext} from "../Contexts/GameContext";
 
+
 class SimpleMenu extends React.Component {
   state = {
     anchorEl: null
@@ -64,9 +65,6 @@ class SimpleMenu extends React.Component {
         </Link>
         <Link to="/GameRoom/">
         <MenuItem onClick={this.handleClose}>Game Room</MenuItem>
-        </Link>
-        <Link to="/Lobby/">
-        <MenuItem onClick={this.handleClose}>Lobby</MenuItem>
         </Link>
         <Link to="/Challenges/">
         <MenuItem onClick={this.handleClose}>Challenges</MenuItem>
