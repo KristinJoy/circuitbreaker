@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpansionPanelActions from "@material-ui/core/ExpansionPanelActions";
 import ProofButton from './ProofButton';
+import {UserContext} from "../Contexts/UserContext";
 
 
 const styles = theme => ({
@@ -23,10 +24,12 @@ const styles = theme => ({
 function SimpleExpansionPanel(props) {
   const { classes } = props;
   return (
+    <UserContext.Consumer>{
+        (game) => (
     <div className={classes.root}>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Brief Description</Typography>
+          <Typography className={classes.heading}>{game.user.username}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Detailed information on what to do.</Typography>
@@ -35,104 +38,10 @@ function SimpleExpansionPanel(props) {
           <ProofButton />
         </ExpansionPanelActions>
       </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Two</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Three</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Four</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Five</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Six</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Seven</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Eight</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Nine</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography />
-        </ExpansionPanelDetails>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
 
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Challenge Ten</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelActions>
-          <ProofButton />
-        </ExpansionPanelActions>
-      </ExpansionPanel>
     </div>
+  )
+}</UserContext.Consumer>
   );
 }
 

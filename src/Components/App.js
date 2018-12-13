@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import GameRoom from "./GameRoom/GameRoom";
-import CountDown from "./Utilities/CountDown";
-import Lobby from "./Lobby/Lobby";
 import Challenges from "./Challenges/Challenges";
 import Map from "./Map/Map";
 import Camera from "./Camera/Camera";
@@ -34,7 +32,6 @@ const AppRouter = () => (
         }</UserContext.Consumer>
       <Route path="/" exact component={App} />
       <Route path="/GameRoom/" component={GameRoom} />
-      <Route path="/Lobby/" component={Lobby} />
       <Route path="/Map/" component={Map} />
       <Route path="/Camera/" component={Camera} />
       <Route path="/CircuitReview/" component={CircuitReview} />

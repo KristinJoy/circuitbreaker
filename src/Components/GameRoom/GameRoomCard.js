@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter as  Link } from "react-router-dom";
-import CountDown from "../Utilities/CountDown";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -8,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Challenges from "../Challenges/Challenges";
 
 
 
@@ -46,10 +46,6 @@ class SimpleCard extends React.Component {
     return (
       <Card>
         <CardContent>
-          <Typography>
-          Circuit starts in <CountDown />
-          </Typography>
-          <br />
           <Typography color="textSecondary" gutterBottom align="center">
             Location
           </Typography>
@@ -64,7 +60,7 @@ class SimpleCard extends React.Component {
           </Typography>
         </CardContent>
         <CardActions>
-          <Link to="/Lobby/">
+          <Link to="/Challenges/">
             <Button size="small" justify="center">
               Join Circuit
             </Button>
