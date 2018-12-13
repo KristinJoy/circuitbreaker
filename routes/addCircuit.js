@@ -73,7 +73,7 @@ router.post('/', function (req, res) {
             date_created: new Date(),
           }).save(function (err, circuit) {
             if(err){console.log(err);}
-            console.log("New Circuit Saved to Database: ", circuit);
+            console.log("New Circuit Saved to Database");
                   //TODO: make it so that this route returns the circuit information
                   res.status(200).send(circuit);
           });//write catch block
