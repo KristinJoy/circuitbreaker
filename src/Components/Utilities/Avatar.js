@@ -7,8 +7,8 @@ import {GameContext} from "../Contexts/GameContext";
 
 const styles = {
   avatar: {
-    color: '#ffffff',
-    backgroundColor: '#000000'
+    color: '#FEBD34',
+    backgroundColor: '#fff'
   }
 };
 
@@ -16,7 +16,7 @@ function LetterAvatars(props) {
   const { classes } = props;
   return (
     <Grid container justify="flex-end" alignItems="flex-end">
-      
+
       <GameContext.Consumer>{ (session) => (
         <Avatar className={classes.avatar}>
           {session.user.username[0]}

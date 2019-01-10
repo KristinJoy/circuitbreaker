@@ -20,21 +20,17 @@ const theme = createMuiTheme({
   palette: {
     primary: {
     //  main: '#448AFF',
-      main: '#555',
+      main: '#FEBD34',
       contrastText: '#eeeeee',
     },
     secondary: {
-      main: '#4CAF50',
+      main: '#f28e1c',
       contrastText: '#eeeeee',
     }
     // secondary1: {
     //   main: '#C62828',
     //   contrastText: '#eeeeee',
     // },
-  },
-  typography: {
-    fontFamily: 'Andale Mono',
-    text: '#ffffff'
   }
 });
 
