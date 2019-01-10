@@ -6,6 +6,8 @@ import {GameContext} from "../Contexts/GameContext";
 //sonic gif: https://media.giphy.com/media/5Mrn3s7rQRvPO/giphy.gif
 //pikachu: https://images.newschoolers.com/images/17/00/68/70/05/687005_50w_50h_zc.gif
 
+//beer stickers https://appadvice.com/game/app/beer-emoji-stickers/1228781193
+
 export class MapContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -64,35 +66,21 @@ export class MapContainer extends React.Component {
     }
     const styles = [
     {
-        "featureType": "all",
-        "elementType": "all",
+
+        "featureType": "water",
+        "elementType": "geometry",
         "stylers": [
             {
-                "hue": "#ff0000"
+                "hue": "#165c64"
             },
             {
-                "saturation": -100
+                "saturation": 34
             },
             {
-                "lightness": -30
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.text.fill",
-        "stylers": [
+                "lightness": -69
+            },
             {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "color": "#353535"
+                "visibility": "on"
             }
         ]
     },
@@ -101,55 +89,283 @@ export class MapContainer extends React.Component {
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#656565"
+                "hue": "#b7caaa"
+            },
+            {
+                "saturation": -14
+            },
+            {
+                "lightness": -18
+            },
+            {
+                "visibility": "on"
             }
         ]
     },
     {
-        "featureType": "poi",
-        "elementType": "geometry.fill",
+        "featureType": "landscape.man_made",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#505050"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "geometry.stroke",
-        "stylers": [
+                "hue": "#cbdac1"
+            },
             {
-                "color": "#808080"
+                "saturation": -6
+            },
+            {
+                "lightness": -9
+            },
+            {
+                "visibility": "on"
+
             }
         ]
     },
     {
+
         "featureType": "road",
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#454545"
+                "hue": "#8d9b83"
+            },
+            {
+                "saturation": -89
+            },
+            {
+                "lightness": -12
+            },
+            {
+                "visibility": "on"
+
+            }
+        ]
+    },
+    {
+
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#d4dad0"
+            },
+            {
+                "saturation": -88
+            },
+            {
+                "lightness": 54
+            },
+            {
+                "visibility": "simplified"
+
+            }
+        ]
+    },
+    {
+
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#bdc5b6"
+            },
+            {
+                "saturation": -89
+            },
+            {
+                "lightness": -3
+            },
+            {
+                "visibility": "simplified"
+
+            }
+        ]
+    },
+    {
+
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#bdc5b6"
+            },
+            {
+                "saturation": -89
+            },
+            {
+                "lightness": -26
+            },
+            {
+                "visibility": "on"
+
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#c17118"
+            },
+            {
+                "saturation": 61
+            },
+            {
+                "lightness": -45
+            },
+            {
+                "visibility": "on"
+
+            }
+        ]
+    },
+    {
+
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#8ba975"
+            },
+            {
+                "saturation": -46
+            },
+            {
+                "lightness": -28
+            },
+            {
+                "visibility": "on"
             }
         ]
     },
     {
         "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#a43218"
+            },
+            {
+                "saturation": 74
+            },
+            {
+                "lightness": -51
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ffffff"
+            },
+            {
+                "saturation": 0
+            },
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ffffff"
+            },
+            {
+                "saturation": 0
+            },
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "off"
+
+            }
+        ]
+    },
+    {
+
+        "featureType": "administrative.locality",
         "elementType": "labels",
         "stylers": [
             {
-                "hue": "#000000"
+                "hue": "#ffffff"
             },
             {
-                "saturation": 100
+                "saturation": 0
             },
             {
-                "lightness": -40
+                "lightness": 100
             },
             {
-                "invert_lightness": true
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ffffff"
             },
             {
-                "gamma": 1.5
+                "saturation": 0
+            },
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#3a3935"
+            },
+            {
+                "saturation": 5
+            },
+            {
+                "lightness": -57
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#cba923"
+            },
+            {
+                "saturation": 50
+            },
+            {
+                "lightness": -46
+            },
+            {
+                "visibility": "on"
+
             }
         ]
     }
@@ -163,7 +379,9 @@ export class MapContainer extends React.Component {
         item
         xs = { 12 }
         style = { style }
-        styles = { styles }
+
+        styles = {styles}
+
         google = { this.props.google }
         onClick = { this.onMapClicked }
         zoom = { 12 }
@@ -188,8 +406,8 @@ export class MapContainer extends React.Component {
               }
             }
             icon={{
-              url: "https://media.giphy.com/media/znPmkQy6WnT20/giphy.gif",
-              scaledSize: new this.props.google.maps.Size(50,50)
+              url: "https://appstickers-cdn.appadvice.com/1228781193/822105646/589fd42340d873e911efed5297e7678e-4.gif",
+              scaledSize: new this.props.google.maps.Size(65,65)
             }}
           />
 

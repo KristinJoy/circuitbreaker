@@ -59,7 +59,7 @@ componentDidUpdate() {
   return (
     <div className="chat-window white">
       <Typography className="center" variant="h4">
-        Trash Talk
+        Stuff You'll Regret Saying Later
       </Typography>
 
       <div className="chat-messages white" id="messages-container">

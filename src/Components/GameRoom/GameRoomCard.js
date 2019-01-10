@@ -44,7 +44,7 @@ class SimpleCard extends React.Component {
     this.state = {
                   foundCircuit: '',
                   circuitFound: false,
-                  message: 'Searching for circuits...',
+                  message: 'Searching for hops scotches...',
                   disableSubmit: false
                   }
   }
@@ -64,7 +64,7 @@ class SimpleCard extends React.Component {
           {
           foundCircuit: circuit,
           circuitFound: true,
-          message: 'Circuit Found!'
+          message: 'Hops Scotch Found!'
         }
         );
         //DO NOT UPDATE GAME HERE, THAT IS DONE ON THE HANDLEJOIN FUNCTION
@@ -82,7 +82,7 @@ class SimpleCard extends React.Component {
               {
               foundCircuit: newCircuit,
               circuitFound: true,
-              message: 'Circuit Added!'
+              message: 'Hops Scotch Added!'
 
               }
             );
@@ -126,7 +126,7 @@ class SimpleCard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='padder'>
           <Typography variant="h6" component="h2" align="center">
             {this.state.message}
           </Typography>
@@ -134,8 +134,10 @@ class SimpleCard extends React.Component {
             {
               this.state.foundCircuit.challenges
               ?
-              <div>
-              <Typography variant="h6" align="center">Circuit Found with  {this.state.foundCircuit.challenges.length} Challenges</Typography>
+              <div className='padder'>
+              <Typography variant="h6" align="center">Hops
+              Scotch Found with  {this.state.foundCircuit.challenges.length} Squares</Typography>
+
               </div>
               :
               <CircularProgress/>
@@ -150,7 +152,7 @@ class SimpleCard extends React.Component {
               className="animated pulse infinite center"
               disabled={this.state.disableSubmit}
               Button onClick={() => this.handleJoin(game)}>
-              {this.state.disableSubmit ? <CircularProgress  size={16}/> : 'Join Circuit'}
+              {this.state.disableSubmit ? <CircularProgress  size={16}/> : 'Start Drinking'}
             </Button>
         )}</GameContext.Consumer>: ''}
       </div>

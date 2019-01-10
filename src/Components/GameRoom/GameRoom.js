@@ -23,8 +23,9 @@ class GameRoom extends Component {
       <div className="screen">
 
           <br />
-          <Typography variant="h1" component="h3" align="center">
-            GAME ROOM
+
+          <Typography className="white title" variant="h2" component="h3" align="center">
+            CONGRATS ON MAKING IT THIS FAR NOW PAY ATTENTION
           </Typography>
           <GameContext.Consumer>{
               (game) => ( //can rewrite this as (userProviderState) => () if that's more clear

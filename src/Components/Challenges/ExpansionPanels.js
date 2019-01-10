@@ -61,17 +61,17 @@ class SimpleExpansionPanel extends React.Component{
   return (
       <ExpansionPanel disabled={this.state.disabled} className="white">
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className="white" variant="h6">
+          <Typography className="white center" variant="h6">
             {
               (this.props.listId+1) + ") " + this.props.value.full_challenge_text
             }
           </Typography>
-          <Typography>
+          <Typography className='distance-badge center'>
             <strong>{(this.props.distance).toFixed(2)}</strong> miles away
           </Typography>
         </ExpansionPanelSummary>
         <div class="center padder challenge-description">
-        <Typography>
+        <Typography variant="h3">
           {
           challenge.location_gate.name
           }
@@ -82,12 +82,14 @@ class SimpleExpansionPanel extends React.Component{
         <Typography >{
           this.props.value.location_gate.address.replace(/<br\s*\/?>/gi, '. ')
           }</Typography>
-        <Typography >
-          <strong>{this.props.value.id_users_completed.length-1}</strong> users have completed this challenge
+
+        <Typography className='padder'>
+          <strong>{this.props.value.id_users_completed.length-1}</strong> users have hopped this square
+
         </Typography>
         <Typography >
           {
-            (this.props.distance < 15) ? 'You can take a selfie!' : 'You can take a picture, but it wont work'
+            (this.props.distance < 15) ? 'You can take a selfie!' : 'You can take a picture, but it wont count'
           }
         </Typography>
       </div>

@@ -135,7 +135,7 @@ export default class FormDialog extends React.Component {
         className="animated pulse infinite center"
         disabled={this.state.disableSubmit}
         Button onClick={this.handleClickOpen}>
-        {this.state.disableSubmit ? <CircularProgress  size={16}/> : 'Get Started!'}
+        {this.state.disableSubmit ? <CircularProgress  size={16}/> : 'Cheers!'}
         </Button>
         <Dialog
           open={this.state.openEmpty}

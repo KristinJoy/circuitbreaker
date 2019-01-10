@@ -371,7 +371,7 @@ this.onFormChange = (e) => {
                 textColor="primary"
                 fullWidth
               >
-                <Tab value="challenges" label="CHALLENGES" />
+                <Tab value="challenges" label="SQUARES" />
                 <Tab value="map" label="MAP" />
                 {(this.state.unreadMessages > 0) ?
                 <Tab value="chat" label={
@@ -393,14 +393,14 @@ this.onFormChange = (e) => {
                 </Grid>
             <div className="center">
               <Typography className="center white" variant="h4">
-                Challenges
+                Squares
               </Typography>
               <div className="padder">
             <Button variant="contained"
               size="small" justify="center"
               color="primary"
 
-              onClick={this.orderChallengesByDistance}>Refresh Challenges</Button>
+              onClick={this.orderChallengesByDistance}>Refresh Squares</Button>
             </div>
             </div>
             <div className="expansion-panels">
@@ -468,6 +468,29 @@ this.onFormChange = (e) => {
             </IconButton>,
           ]}
         />: ''}
+
+        <Dialog
+          open={this.state.userLostCircuit}
+          TransitionComponent={Transition}
+          keepMounted
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title">
+            {"Sorry! You Were Too Slow!"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Sorry you couldn't hop quickly enough! Better luck next time!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleDialogue} color="primary">
+              Review Squares
+            </Button>
+          </DialogActions>
+        </Dialog>
+
 
           </div>
       );

@@ -36,7 +36,7 @@ class ButtonSizes extends React.Component {
     <div>
       <div>
           <Button disabled={this.state.disableSubmit} variant="contained" onClick={this.handleClick} size="small" color="primary">
-            {this.state.disableSubmit ? <CircularProgress  size={16}/> : 'Join New Circuit'}
+            {this.state.disableSubmit ? <CircularProgress  size={16}/> : 'Hop Again'}
           </Button>
       </div>
     </div>

@@ -7,6 +7,7 @@
     "@material-ui/core": "^3.6.1",
     "@material-ui/icons": "^3.0.1",
     "animate.css": "^3.7.0",
+    "array-shuffle": "^1.0.1",
     "atob": "^2.1.2",
     "aws-sdk": "^2.373.0",
     "axios": "^0.18.0",
@@ -40,6 +41,7 @@
     "react-transition-group": "^1.2.1",
     "react-webcam": "^1.0.4",
     "recordrtc": "^5.4.9",
+    "shuffle-array": "^1.0.1",
     "socket.io": "^2.2.0",
     "synonyms": "^1.0.1"
   },
